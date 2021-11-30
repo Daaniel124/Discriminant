@@ -1,20 +1,30 @@
 from tkinter import *
 
+def discriminant():
+    pass
+
 window = Tk()
 window.title('Квадратное уравнение')
 window.geometry('500x200')
 
 frm = Frame(window)
+frm2 = Frame(window)
 lbl1 = Label(window, text = 'Решение квадратного уравнения', font = 'Arial 15')
 lbl2 = Label(window, text = 'Введите значения:', font = 'Arial 12')
 lbl3 = Label(frm, text = 'x**2 + ', font = 'Arial 15')
 lbl4 = Label(frm, text = 'x + ', font = 'Arial 15')
 lbl5 = Label(frm, text = '= 0', font = 'Arial 15')
+lbl6 = Label(frm2, text = 'Решение', font = 'Arial 15')
+lbl7 = Label(frm2, text = ' ', font = 'Arial 15')
 ent1 = Entry(frm, bg = 'lightblue', width = 5, font = 'Arial 15')
 ent2 = Entry(frm, bg = 'lightgreen', width = 5, font = 'Arial 15')
 ent3 = Entry(frm, bg = 'lightyellow', width = 5, font = 'Arial 15')
-btn = Button(window, text = 'Решение', font = 'Arial 15', fg = 'red', bg = 'lightblue', width = 9, height = 2)
+btn = Button(window, text = 'Решить', font = 'Arial 15', fg = 'red', bg = 'lightblue', width = 9, height = 2)
 
+btn.bind('<Button-1>', discriminant)
+ent1.bind('<Return>')
+ent2.bind('<Return>')
+ent3.bind('<Return>')
 lbl1.pack()
 lbl2.pack()
 frm.pack(padx = 10, pady = 20)
@@ -25,4 +35,7 @@ lbl4.pack(side = LEFT)
 ent3.pack(side = LEFT)
 lbl5.pack(side = LEFT)
 btn.pack()
+frm2.pack(padx = 10, pady = 10)
+lbl6.pack()
+lbl7.pack()
 window.mainloop()
